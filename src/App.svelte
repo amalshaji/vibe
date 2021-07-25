@@ -71,12 +71,13 @@
     {#if !play}
       <button on:click={dancingDog} class="button is-link">{party}</button>
       &nbsp
-      <button
-        on:click={() => (location.href = "https://github.com/amalshaji/vibe")}
+      <a
+        href="https://github.com/amalshaji/vibe"
+        target="_blank"
         class="button is-light"
       >
-        <img src="/github.png" alt="" /> &nbsp; Sauce
-      </button>
+        <img src="/github.png" alt="" /> &nbsp; GitHub
+      </a>
     {/if}
   </div>
 </section>
