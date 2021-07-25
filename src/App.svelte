@@ -22,7 +22,7 @@
       }
 
       document.getElementById("section").style.backgroundColor = "#363636";
-    }, 18000);
+    }, 17500);
   };
 
   const dancingDog = () => {
@@ -37,6 +37,7 @@
     setTimeout(() => {
       play = false;
       party = "Vibe for 30 seconds 🎉";
+      i = 0;
     }, 36000);
   };
 
