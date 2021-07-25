@@ -2,12 +2,35 @@
   let party = "Vibe for 30 seconds 🎉";
   let play = false;
   let dancingMusic;
+  let i = 0;
+
+  function delay(delayInms) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(2);
+      }, delayInms);
+    });
+  }
+  const generateRandomColors = async () => {
+    let randomColor;
+    setTimeout(async () => {
+      while (i < 70) {
+        randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        document.getElementById("section").style.backgroundColor = randomColor;
+        i++;
+        await delay(250);
+      }
+
+      document.getElementById("section").style.backgroundColor = "#363636";
+    }, 17000);
+  };
 
   const dancingDog = () => {
+    generateRandomColors();
     party = "🎉🎉🎉🎉🎉🎉";
     setTimeout(() => {
       play = true;
-    }, 2000);
+    }, 1500);
 
     dancingMusic.play();
     dragElement(document.getElementById("mydiv"));
@@ -62,14 +85,20 @@
   }
 </script>
 
-<section class="hero is-dark is-fullheight" style="overflow: hidden;">
+<section
+  id="section"
+  class="hero is-dark is-fullheight"
+  style="overflow: hidden;"
+>
   <div class="hero-body">
     <div id="mydiv">
       <img src="/dancing.gif" hidden={!play} id="mydivheader" alt="" />
     </div>
     <audio src="/dancing.mp3" bind:this={dancingMusic} />
     {#if !play}
-      <button on:click={dancingDog} class="button is-link">{party}</button>
+      <button on:click={dancingDog} class="button is-link" disabled={play}
+        >{party}</button
+      >
       &nbsp
       <a
         href="https://github.com/amalshaji/vibe"
