@@ -22,7 +22,7 @@
       }
 
       document.getElementById("section").style.backgroundColor = "#363636";
-    }, 17000);
+    }, 18000);
   };
 
   const dancingDog = () => {
