@@ -69,13 +69,11 @@
     </div>
     <audio src="/dancing.mp3" bind:this={dancingMusic} />
     {#if !play}
-      <button on:click={dancingDog} class="button is-link is-large"
-        >{party}</button
-      >
+      <button on:click={dancingDog} class="button is-link">{party}</button>
       &nbsp
       <button
         on:click={() => (location.href = "https://github.com/amalshaji/vibe")}
-        class="button is-light is-large"
+        class="button is-light"
       >
         <img src="/github.png" alt="" /> &nbsp; Sauce
       </button>
