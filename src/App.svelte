@@ -1,8 +1,12 @@
 <script>
+  import { onMount } from "svelte";
+
   let party = "Vibe for 30 seconds 🎉";
   let play = false;
   let dancingMusic;
   let i = 0;
+  let duck = false;
+  let temp = "/extras/doge.gif";
 
   function delay(delayInms) {
     return new Promise((resolve) => {
@@ -14,13 +18,21 @@
   const generateRandomColors = async () => {
     let randomColor;
     setTimeout(async () => {
+      duck = true;
+      dragElement(document.getElementById("mydiv2"));
       while (i < 70) {
+        if (i % 4 == 0) {
+          temp =
+            temp == "/extras/doge.gif"
+              ? "/extras/doge-flip.gif"
+              : "/extras/doge.gif";
+        }
         randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
         document.getElementById("section").style.backgroundColor = randomColor;
         i++;
         await delay(250);
       }
-
+      duck = false;
       document.getElementById("section").style.backgroundColor = "#363636";
     }, 17500);
   };
@@ -91,14 +103,23 @@
   class="hero is-dark is-fullheight"
   style="overflow: hidden;"
 >
+  <div class="hero-head">
+    <div id="mydiv2">
+      <img src={temp} hidden={!duck} id="mydiv2header" alt="" />
+    </div>
+  </div>
   <div class="hero-body">
     <div id="mydiv">
       <img src="/dancing.gif" hidden={!play} id="mydivheader" alt="" />
     </div>
+
     <audio src="/dancing.mp3" bind:this={dancingMusic} />
     {#if !play}
-      <button on:click={dancingDog} class="button is-link" disabled={play}
-        >{party}</button
+      <button
+        style="margin-left: 5px;"
+        on:click={dancingDog}
+        class="button is-link"
+        disabled={play}>{party}</button
       >
       &nbsp
       <a
@@ -113,12 +134,14 @@
 </section>
 
 <style>
-  #mydiv {
+  #mydiv,
+  #mydiv2 {
     position: absolute;
     z-index: 9;
   }
 
-  #mydivheader {
+  #mydivheader,
+  #mydiv2header {
     cursor: move;
     z-index: 10;
   }
