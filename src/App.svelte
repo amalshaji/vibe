@@ -4,7 +4,7 @@
   let dancingMusic;
   let i = 0;
   let duck = false;
-  let temp = "/extras/doge.gif";
+  let temp = "/extras/doge-flip.gif";
 
   function delay(delayInms) {
     return new Promise((resolve) => {
@@ -18,13 +18,15 @@
     setTimeout(async () => {
       duck = true;
       // dragElement(document.getElementById("mydiv2"));
-      while (i < 70) {
+      while (play && i < 70) {
         if (i % 4 == 0) {
           temp =
             temp == "/extras/doge.gif"
               ? "/extras/doge-flip.gif"
               : "/extras/doge.gif";
-          party.confetti(document.getElementById("section"));
+          party.confetti(document.getElementById("section"), {
+            shapes: ["square", "circle", "roundedRectangle"],
+          });
         }
         randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
         document.getElementById("section").style.backgroundColor = randomColor;
@@ -37,9 +39,11 @@
   };
 
   const dancingDog = () => {
+    let el = document.getElementById("mydiv");
+    el.style.left = (0.6 * screen.width) / 2 + "px";
     dancingMusic.play();
     generateRandomColors();
-    partyText = "🎉🎉🎉🎉🎉🎉";
+    partyText = "Such Doge, Much Wow!";
     setTimeout(() => {
       play = true;
     }, 1500);
@@ -103,17 +107,16 @@
   style="overflow: hidden;"
 >
   <div class="hero-body">
-    <div id="mydiv" style="margin: auto;">
+    <div id="mydiv">
       <img src="/dancing.gif" hidden={!play} id="mydivheader" alt="" />
       <img src={temp} hidden={!duck} id="mydiv2header" alt="" />
     </div>
-    <div id="mydiv2" />
     <audio src="/dancing.mp3" bind:this={dancingMusic} />
     {#if !play}
       <button
         style="margin-left: 5px;"
         on:click={dancingDog}
-        class="button is-link"
+        class="button is-black"
         disabled={play}>{partyText}</button
       >
       &nbsp
@@ -129,8 +132,7 @@
 </section>
 
 <style>
-  #mydiv,
-  #mydiv2 {
+  #mydiv {
     position: absolute;
     z-index: 9;
   }
