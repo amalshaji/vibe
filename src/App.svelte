@@ -19,7 +19,7 @@
     let randomColor;
     setTimeout(async () => {
       duck = true;
-      dragElement(document.getElementById("mydiv2"));
+      // dragElement(document.getElementById("mydiv2"));
       while (i < 70) {
         if (i % 4 == 0) {
           temp =
@@ -103,16 +103,12 @@
   class="hero is-dark is-fullheight"
   style="overflow: hidden;"
 >
-  <div class="hero-head">
-    <div id="mydiv2">
+  <div class="hero-body">
+    <div id="mydiv" style="margin: auto;">
+      <img src="/dancing.gif" hidden={!play} id="mydivheader" alt="" />
       <img src={temp} hidden={!duck} id="mydiv2header" alt="" />
     </div>
-  </div>
-  <div class="hero-body">
-    <div id="mydiv">
-      <img src="/dancing.gif" hidden={!play} id="mydivheader" alt="" />
-    </div>
-
+    <div id="mydiv2" />
     <audio src="/dancing.mp3" bind:this={dancingMusic} />
     {#if !play}
       <button
