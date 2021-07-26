@@ -1,7 +1,5 @@
 <script>
-  import { onMount } from "svelte";
-
-  let party = "Vibe for 30 seconds 🎉";
+  let partyText = "Vibe for 30 seconds 🎉";
   let play = false;
   let dancingMusic;
   let i = 0;
@@ -26,6 +24,7 @@
             temp == "/extras/doge.gif"
               ? "/extras/doge-flip.gif"
               : "/extras/doge.gif";
+          party.confetti(document.getElementById("section"));
         }
         randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
         document.getElementById("section").style.backgroundColor = randomColor;
@@ -38,17 +37,17 @@
   };
 
   const dancingDog = () => {
+    dancingMusic.play();
     generateRandomColors();
-    party = "🎉🎉🎉🎉🎉🎉";
+    partyText = "🎉🎉🎉🎉🎉🎉";
     setTimeout(() => {
       play = true;
     }, 1500);
 
-    dancingMusic.play();
     dragElement(document.getElementById("mydiv"));
     setTimeout(() => {
       play = false;
-      party = "Vibe for 30 seconds 🎉";
+      partyText = "Vibe for 30 seconds 🎉";
       i = 0;
     }, 36000);
   };
@@ -115,7 +114,7 @@
         style="margin-left: 5px;"
         on:click={dancingDog}
         class="button is-link"
-        disabled={play}>{party}</button
+        disabled={play}>{partyText}</button
       >
       &nbsp
       <a
