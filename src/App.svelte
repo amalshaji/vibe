@@ -40,7 +40,7 @@
 
   const dancingDog = () => {
     let el = document.getElementById("mydiv");
-    el.style.left = (0.6 * screen.width) / 2 + "px";
+    el.style.left = (0.7 * window.innerWidth) / 2 + "px";
     dancingMusic.play();
     generateRandomColors();
     partyText = "Such Doge, Much Wow!";
