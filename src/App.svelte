@@ -113,6 +113,12 @@
   class="hero is-dark is-fullheight"
   style="background-color: #212529;"
 >
+  <progress
+    bind:this={progress}
+    class="progress is-success is-small"
+    value="0"
+    max="100"
+  />
   <div class="hero-body">
     <div id="mydiv">
       <img src="/dancing.gif" hidden={!play} id="mydivheader" alt="" />
@@ -136,12 +142,6 @@
       </a>
     {/if}
   </div>
-  <progress
-    bind:this={progress}
-    class="progress is-success is-small"
-    value="0"
-    max="100"
-  />
 </section>
 
 <style>
