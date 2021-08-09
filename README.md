@@ -1,3 +1,5 @@
 # Vibe for 30 seconds
 
-### Inspired by the doge on [updog](https://www.updog.marketing/)
+### Something to make your day feel better cause you deserve it!!
+
+![motevetion](public/twitter_card.png)

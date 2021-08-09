@@ -5,6 +5,8 @@
   let i = 0;
   let duck = false;
   let temp = "/extras/doge-flip.gif";
+  let progress;
+  let interval;
 
   function delay(delayInms) {
     return new Promise((resolve) => {
@@ -34,7 +36,7 @@
         await delay(250);
       }
       duck = false;
-      document.getElementById("section").style.backgroundColor = "#363636";
+      document.getElementById("section").style.backgroundColor = "#212529";
     }, 17500);
   };
 
@@ -42,6 +44,9 @@
     let el = document.getElementById("mydiv");
     el.style.left = (0.7 * window.innerWidth) / 2 + "px";
     dancingMusic.play();
+    interval = setInterval(() => {
+      progress.value += 0.14;
+    }, 50);
     generateRandomColors();
     partyText = "Such Doge, Much Wow!";
     setTimeout(() => {
@@ -53,6 +58,8 @@
       play = false;
       partyText = "Vibe for 30 seconds 🎉";
       i = 0;
+      clearInterval(interval);
+      progress.value = 0;
     }, 36000);
   };
 
@@ -104,7 +111,7 @@
 <section
   id="section"
   class="hero is-dark is-fullheight"
-  style="overflow: hidden;"
+  style="background-color: #212529;"
 >
   <div class="hero-body">
     <div id="mydiv">
@@ -125,10 +132,16 @@
         target="_blank"
         class="button is-light"
       >
-        <img src="/github.png" alt="" /> &nbsp; GitHub
+        <img src="/github.png" width="25px" alt="" /> &nbsp; Source Code
       </a>
     {/if}
   </div>
+  <progress
+    bind:this={progress}
+    class="progress is-success is-small"
+    value="0"
+    max="100"
+  />
 </section>
 
 <style>
@@ -136,6 +149,32 @@
     position: absolute;
     z-index: 9;
   }
+
+  .progress {
+    border-radius: 0%;
+  }
+
+  .progress::-webkit-progress-value {
+    background-color: #30aa4e !important;
+  }
+
+  .progress::-webkit-progress-bar {
+    background-color: #212529 !important;
+  }
+  .progress::-moz-progress-value {
+    background-color: #30aa4e !important;
+  }
+
+  .progress::-moz-progress-bar {
+    background-color: #212529 !important;
+  }
+
+  .progress::-ms-fill {
+    background-color: #212529 !important;
+    border: none;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
 
   #mydivheader,
   #mydiv2header {
