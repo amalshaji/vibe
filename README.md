@@ -2,4 +2,4 @@
 
 ### Something to make your day feel better cause you deserve it!!
 
-![motevetion](public/twitter_card.png)
+![motevetion](public/card.png)
