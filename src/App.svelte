@@ -40,7 +40,15 @@
     }, 17500);
   };
 
+  const resetAudio = () => {
+    dancingMusic.pause();
+    dancingMusic.currentTime = 0;
+  };
+
   const dancingDog = () => {
+    // set defaults to prevent leaking
+    clearInterval(interval);
+    progress.value = 0;
     let el = document.getElementById("mydiv");
     el.style.left = (0.7 * window.innerWidth) / 2 + "px";
     dancingMusic.play();
@@ -55,6 +63,7 @@
 
     dragElement(document.getElementById("mydiv"));
     setTimeout(() => {
+      resetAudio();
       play = false;
       partyText = "Vibe for 30 seconds 🎉";
       i = 0;
@@ -126,20 +135,25 @@
     </div>
     <audio src="/dancing.mp3" bind:this={dancingMusic} />
     {#if !play}
-      <button
-        style="margin-left: 5px;"
-        on:click={dancingDog}
-        class="button is-black"
-        disabled={play}>{partyText}</button
-      >
-      &nbsp
-      <a
-        href="https://github.com/amalshaji/vibe"
-        target="_blank"
-        class="button is-light"
-      >
-        <img src="/github.png" width="25px" alt="" /> &nbsp; Source Code
-      </a>
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <div class="buttons">
+              <button on:click={dancingDog} class="button is-black"
+                >{partyText}</button
+              >
+              &nbsp
+              <a
+                href="https://github.com/amalshaji/vibe"
+                target="_blank"
+                class="button is-info"
+              >
+                <img src="/github.png" width="25px" alt="" /> &nbsp; Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     {/if}
   </div>
 </section>
