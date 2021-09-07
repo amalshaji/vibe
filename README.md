@@ -7,6 +7,7 @@
  defer
  data-name="vibe-Widget"
  src="https://vibe.pages.dev/vibe.button.js"
+ data-message="Vibe for 30 seconds"
  data-color="#363636"
  data-position="Right"
  data-x_margin="18"
