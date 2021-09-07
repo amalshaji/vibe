@@ -50,7 +50,7 @@
     clearInterval(interval);
     progress.value = 0;
     let el = document.getElementById("mydiv");
-    el.style.left = (0.7 * window.innerWidth) / 2 + "px";
+    el.style.left = (0.5 * window.innerWidth) / 2 + "px";
     dancingMusic.play();
     interval = setInterval(() => {
       progress.value += 0.14;
