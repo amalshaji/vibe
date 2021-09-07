@@ -14,6 +14,8 @@
  data-y_margin="18"></script>
 ```
 
-### Something to make your day feel better cause you deserve it!!
+## Demo
 
-![motevetion](public/card.png)
+[amalshaji.com](https://amalshaji.com)
+
+## Shamelessly ripped off of `buymeacoffee` button
