@@ -104,9 +104,11 @@
               >
               &nbsp
               <a
+                rel="noreferrer"
                 href="https://github.com/amalshaji/vibe"
                 target="_blank"
                 class="button is-light is-outlined"
+                aria-label="source code"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -129,33 +131,8 @@
   </div>
 </section>
 
-<style>
-  #mydiv {
-    position: absolute;
-    z-index: 9;
-  }
-
-  .progress {
-    border-radius: 0%;
-  }
-
-  .progress::-webkit-progress-value {
-    background-color: #30aa4e !important;
-  }
-
-  .progress::-webkit-progress-bar {
-    background-color: #212529 !important;
-  }
-  .progress::-moz-progress-value {
-    background-color: #30aa4e !important;
-  }
-
-  .progress::-moz-progress-bar {
-    background-color: #212529 !important;
-  }
-
-  .progress::-ms-fill {
-    background-color: #212529 !important;
-    border: none;
-  }
+<style lang="postcss" global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 </style>
