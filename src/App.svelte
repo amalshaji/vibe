@@ -84,16 +84,14 @@
   />
   <div class="hero-body">
     <div id="mydiv">
-      <img use:draggable src={temp} hidden={!duck} id="mydiv2header" alt="" />
-      <img
-        use:draggable
-        src="/dancing.gif"
-        hidden={!play}
-        id="mydivheader"
-        alt=""
-      />
+      <div style="z-index: 9999999; position: absolute;">
+        <img use:draggable src={temp} hidden={!duck} alt="" />
+      </div>
+      <div style="z-index: 999999; position: absolute;">
+        <img use:draggable src="/dancing.gif" hidden={!play} alt="" />
+      </div>
     </div>
-    <audio src="/dancing.mp3" bind:this={dancingMusic} />
+    <audio preload="auto" src="/dancing.mp3" bind:this={dancingMusic} />
     {#if !play}
       <div class="container">
         <div class="columns is-centered">
@@ -130,9 +128,3 @@
     {/if}
   </div>
 </section>
-
-<style lang="postcss" global>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-</style>
