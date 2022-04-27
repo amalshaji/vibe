@@ -55,7 +55,7 @@
 
 <Music bind:this={dancingMusic} />
 
-<div class="grid place-items-center h-screen bg-slate-900" id="podium">
+<div class="grid place-items-center h-screen bg-gray-900" id="podium">
 	{#if play}
 		<div class="flex">
 			<div use:draggable class="mx-2">
