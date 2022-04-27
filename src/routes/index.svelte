@@ -2,6 +2,7 @@
 	import { draggable } from '@neodrag/svelte';
 	import PlayBtn from '$lib/components/PlayBtn.svelte';
 	import Music from '$lib/components/Music.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let play = false;
 	let partner = false;
@@ -48,6 +49,7 @@
 
 <svelte:head>
 	<title>Vibe</title>
+	<Seo />
 	<link rel="preload" as="image" href="/doge.gif" />
 	<link rel="preload" as="image" href="/doge-flip.gif" />
 	<script defer src="/party.min.js"></script>
